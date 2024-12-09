@@ -1,0 +1,60 @@
+<div class="registration-container">
+    <h2>Register</h2>
+    <form [formGroup]="registrationForm" (ngSubmit)="onRegister()">
+      <!-- Email Input -->
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          formControlName="email"
+          placeholder="Enter your email"
+          required
+        />
+      </div>
+  
+      <!-- Password Input -->
+      <div class="form-group">
+        <label for="password">Password</label>
+        <div class="password-container">
+          <input
+            [type]="showPassword ? 'text' : 'password'"
+            id="password"
+            formControlName="password"
+            placeholder="Enter your password"
+            required
+          />
+          <i
+            class="toggle-icon"
+            (click)="togglePasswordVisibility('password')"
+            >{{ showPassword ? 'Hide' : 'Show' }}</i
+          >
+        </div>
+      </div>
+  
+      <!-- Confirm Password Input -->
+      <div class="form-group">
+        <label for="confirmPassword">Confirm Password</label>
+        <div class="password-container">
+          <input
+            [type]="showConfirmPassword ? 'text' : 'password'"
+            id="confirmPassword"
+            formControlName="confirmPassword"
+            placeholder="Confirm your password"
+            required
+          />
+          <i
+            class="toggle-icon"
+            (click)="togglePasswordVisibility('confirmPassword')"
+            >{{ showConfirmPassword ? 'Hide' : 'Show' }}</i
+          >
+        </div>
+      </div>
+  
+      <!-- Register Button -->
+      <button type="submit" [disabled]="registrationForm.invalid">
+        Register
+      </button>
+    </form>
+  </div>
+  
